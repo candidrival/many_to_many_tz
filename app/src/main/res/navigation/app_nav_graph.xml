@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/allItemsFragment">
+
+    <fragment
+        android:id="@+id/allItemsFragment"
+        android:name="com.example.many_to_many_tz.presentation.all_items.AllItemsFragment"
+        android:label="AllItemsFragment"
+        tools:layout="@layout/fragment_all_items">
+        <action
+            android:id="@+id/allItemsFragment_to_chosenItemFragment"
+            app:destination="@id/chosenItemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" >
+            <argument
+                android:name="itemId"
+                app:argType="string" />
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="image"
+                app:argType="string" />
+            <argument
+                android:name="color"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chosenItemFragment"
+        android:name="com.example.many_to_many_tz.presentation.chosen_item.ChosenItemFragment"
+        android:label="ChosenItemFragment"
+        tools:layout="@layout/fragment_chosen_item">
+        <argument
+            android:name="itemId"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
